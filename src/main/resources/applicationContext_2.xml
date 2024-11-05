@@ -1,0 +1,85 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Треки для радиостанции 1 -->
+    <bean id="track1_1" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song A1" />
+    </bean>
+    <bean id="track1_2" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song A2" />
+    </bean>
+    <bean id="track1_3" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song A3" />
+    </bean>
+
+    <!-- Радиостанция 1 с тремя треками -->
+    <bean id="radioStation1" class="ru.maxima.radio.RadioStation">
+        <constructor-arg value="Radio One" />
+        <constructor-arg>
+            <list>
+                <ref bean="track1_1" />
+                <ref bean="track1_2" />
+                <ref bean="track1_3" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Треки для радиостанции 2 -->
+    <bean id="track2_1" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song B1" />
+    </bean>
+    <bean id="track2_2" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song B2" />
+    </bean>
+    <bean id="track2_3" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song B3" />
+    </bean>
+
+    <!-- Радиостанция 2 с тремя треками -->
+    <bean id="radioStation2" class="ru.maxima.radio.RadioStation">
+        <constructor-arg value="Radio Two" />
+        <constructor-arg>
+            <list>
+                <ref bean="track2_1" />
+                <ref bean="track2_2" />
+                <ref bean="track2_3" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Треки для радиостанции 3 -->
+    <bean id="track3_1" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song C1" />
+    </bean>
+    <bean id="track3_2" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song C2" />
+    </bean>
+    <bean id="track3_3" class="ru.maxima.radio.Track">
+        <constructor-arg value="Song C3" />
+    </bean>
+
+    <!-- Радиостанция 3 с тремя треками -->
+    <bean id="radioStation3" class="ru.maxima.radio.RadioStation">
+        <constructor-arg value="Radio Three" />
+        <constructor-arg>
+            <list>
+                <ref bean="track3_1" />
+                <ref bean="track3_2" />
+                <ref bean="track3_3" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Плеер с листом радиостанций -->
+    <bean id="player" class="ru.maxima.radio.Player">
+        <constructor-arg>
+            <list>
+                <ref bean="radioStation1" />
+                <ref bean="radioStation2" />
+                <ref bean="radioStation3" />
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
