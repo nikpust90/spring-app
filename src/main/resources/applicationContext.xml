@@ -1,0 +1,35 @@
+<!-- applicationContext.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Бины для каждого животного -->
+    <bean id="cat" class="ru.maxima.Cat">
+        <constructor-arg value="Whiskers" />
+        <constructor-arg value="3" />
+    </bean>
+
+    <bean id="dog" class="ru.maxima.Dog">
+        <constructor-arg value="Buddy" />
+        <constructor-arg value="5" />
+    </bean>
+
+    <bean id="duck" class="ru.maxima.Duck">
+        <constructor-arg value="Daisy" />
+        <constructor-arg value="2" />
+    </bean>
+
+    <bean id="tiger" class="ru.maxima.Tiger">
+        <constructor-arg value="Shera" />
+        <constructor-arg value="4" />
+    </bean>
+
+    <!-- Бин Zoo с передачей зависимостей через конструктор -->
+    <bean id="zoo" class="ru.maxima.Zoo">
+        <constructor-arg ref="cat" />
+        <constructor-arg ref="dog" />
+        <constructor-arg ref="duck" />
+        <constructor-arg ref="tiger" />
+    </bean>
+</beans>
